@@ -9,10 +9,10 @@ router.get("/", async (req,res)=>{
     try {
         const user = await User.find()
         if(!user) return res.status(400).json({message:"Could not fetch your data"}) 
-        res.status(200).json(user)
+        res.status(200).send(user)
     } catch (error) {
         console.log(error)
-        res.status(500).json({message: "Internal Server Error"})
+        res.status(500).send({message: "Internal Server Error"})
     }
 })
 
