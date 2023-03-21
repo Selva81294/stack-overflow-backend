@@ -33,4 +33,16 @@ router.post ("/", async (req,res)=>{
 })
 
 
+//get all users
+router.get("/users", async (req,res)=>{
+    try {
+        const user = await User.find()
+        if(!user) return res.status(400).json({message:"Could not fetch your data"}) 
+        res.status(200).send(user)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({message: "Internal Server Error"})
+    }
+})
+
 module.exports = router;
