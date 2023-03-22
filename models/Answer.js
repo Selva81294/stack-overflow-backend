@@ -6,10 +6,7 @@ const answerSchema = new mongoose.Schema({
         ref: "Questions"
     },
     answer: String,
-    created_at:{
-        type: Date,
-        default: String,
-    },
+    created_at: String,
     user : {
         type : mongoose.Schema.Types.String,
         ref : 'user'

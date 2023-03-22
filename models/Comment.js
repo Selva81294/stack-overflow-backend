@@ -6,10 +6,7 @@ const commentSchema = new mongoose.Schema({
         ref: "Qustions"
     },
     comment: String,
-    created_at:{
-        type: Date,
-        default: String
-    },
+    created_at: String,
     user : {
         type : mongoose.Schema.Types.String,
         ref : 'user'

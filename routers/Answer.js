@@ -4,8 +4,9 @@ const router = express.Router()
 const AnswerDB = require("../models/Answer")
 
 router.post("/", async (req,res)=>{
+    let postDate = new Date().toJSON().slice(0,10)
     const answerData = new AnswerDB({
-        ...req.body, user: req.user.username
+        ...req.body, created_at:postDate, user: req.user.username
     })
 
     await answerData.save().then((doc)=>{
@@ -14,6 +15,7 @@ router.post("/", async (req,res)=>{
             data : doc
         })
     }).catch((err)=>{
+        console.log(err)
         res.status(400).send({
             status: false,
             message: "Error occured in posting answer"

@@ -4,11 +4,13 @@ const router = express.Router()
 const CommentDB = require("../models/Comment")
 
 router.post('/:id', async (req,res)=>{
+    let postDate = new Date().toJSON().slice(0,10)
     try {
         await CommentDB.create({
             question_id: req.params.id,
             comment : req.body.comment,
-            user: req.user.username 
+            created_at: postDate, 
+            user: req.user.username
         }).then((doc)=>{
             res.status(201).send({
                 status: true,
