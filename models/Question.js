@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const {ObjectId} = mongoose.Schema
 
 const questionSchema = new mongoose.Schema({
     title: String,
@@ -9,7 +10,7 @@ const questionSchema = new mongoose.Schema({
         default: String,
     },
     user : {
-        type : mongoose.Schema.Types.ObjectId,
+        type : ObjectId,
         ref : 'user'
     },
     comment_id: {
