@@ -8,9 +8,12 @@ const answerSchema = new mongoose.Schema({
     answer: String,
     created_at:{
         type: Date,
-        default: Date.now()
+        default: String,
     },
-    user: Object,
+    user : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'user'
+    },
     comment_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comments"

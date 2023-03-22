@@ -4,11 +4,9 @@ const router = express.Router()
 const QuestionDB = require("../models/Question")
 
 router.post('/', async(req,res)=>{
+  let postDate = new Date().toJSON().slice(0,10)
     const questionData = new QuestionDB({
-        title: req.body.title,
-        body: req.body.body,
-        tags:req.body.tags,
-        user: req.body.user 
+      ...req.body, date:postDate, user: req.user.username
     })
     await questionData.save().then((doc)=>{
         res.status(201).send({

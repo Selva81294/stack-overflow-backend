@@ -8,9 +8,12 @@ const commentSchema = new mongoose.Schema({
     comment: String,
     created_at:{
         type: Date,
-        default: Date.now()
+        default: String
     },
-    user: Object,
+    user : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'user'
+    }
 })
 
 module.exports = mongoose.model("Comments", commentSchema)

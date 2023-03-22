@@ -8,7 +8,7 @@ router.post('/:id', async (req,res)=>{
         await CommentDB.create({
             question_id: req.params.id,
             comment : req.body.comment,
-            user : req.body.user   
+            user: req.user.username 
         }).then((doc)=>{
             res.status(201).send({
                 status: true,
