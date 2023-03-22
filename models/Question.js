@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const {String} = mongoose.Schema
 
 const questionSchema = new mongoose.Schema({
     title: String,
@@ -7,7 +6,7 @@ const questionSchema = new mongoose.Schema({
     tags: [],
     created_at: String,
     user : {
-        type : String,
+        type : mongoose.Schema.Types.String,
         ref : 'user'
     },
     comment_id: {

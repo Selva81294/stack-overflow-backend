@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const {ObjectId} = mongoose.Schema
 
 const commentSchema = new mongoose.Schema({
     question_id:{
@@ -12,7 +11,7 @@ const commentSchema = new mongoose.Schema({
         default: String
     },
     user : {
-        type : ObjectId,
+        type : mongoose.Schema.Types.String,
         ref : 'user'
     }
 })
