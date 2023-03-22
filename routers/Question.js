@@ -8,7 +8,7 @@ router.post('/', async(req,res)=>{
     const questionData = new QuestionDB({
       title: req.body.title,
       body: req.body.body,
-      tags: req.body.tag, created_at:postDate, user: req.user.username
+      tags: req.body.tags, created_at:postDate, user: req.user.username
     })
     await questionData.save().then((doc)=>{
         res.status(201).send({
