@@ -6,7 +6,7 @@ const QuestionDB = require("../models/Question")
 router.post('/', async(req,res)=>{
   let postDate = new Date().toJSON().slice(0,10)
     const questionData = new QuestionDB({
-      ...req.body, date:postDate, user: req.user.username
+      ...req.body, created_at:postDate, user: req.user.username
     })
     await questionData.save().then((doc)=>{
         res.status(201).send({
@@ -14,6 +14,7 @@ router.post('/', async(req,res)=>{
             data: doc
         })
     }).catch((err)=>{
+      console.log(err)
         res.status(400).send({
             status: false,
             message: "Error occured in posting question"
