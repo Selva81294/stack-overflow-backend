@@ -25,28 +25,29 @@ router.post("/", async (req, res) => {
 
     const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
 
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "selva81294@gmail.com",
-        pass: "gcfsggvtwusbhijw",
-      },
-    });
+    // var transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: "selva81294@gmail.com",
+    //     pass: "gcfsggvtwusbhijw",
+    //   },
+    // });
 
-    var mailOptions = {
-      from: "selva81294@gmail.com",
-      to: "kumaranselva888@gmail.com",
-      subject: "Password Reset",
-      text: link,
-    };
+    // var mailOptions = {
+    //   from: "selva81294@gmail.com",
+    //   to: "kumaranselva888@gmail.com",
+    //   subject: "Password Reset",
+    //   text: link,
+    // };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log("Email sent: " + info.response);
-      }
-    });
+    // transporter.sendMail(mailOptions, function (error, info) {
+    //   if (error) {
+    //     console.log(error);
+    //   } else {
+    //     console.log("Email sent: " + info.response);
+    //   }
+    // });
+    console.log(link)
     res.status(200).json({ message: "Link sent to your mail" });
   } catch (error) {
     console.log(error);
