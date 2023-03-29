@@ -3,11 +3,11 @@ const { User } = require("../models/User");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 
-const app = express();
-const router = express.Router();
+
+const router = express()
 
 
-app.set("view engine", "ejs");
+router.set("view engine", "ejs");
 
 router.post("/", async (req, res) => {
   const { email } = req.body;
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
       expiresIn: "30m",
     });
 
-    const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
+    // const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
     
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
       from: "selva81294@gmail.com",
       to: "kumaranselva888@gmail.com",
       subject: "Password Reset",
-      text: link
+      html: '<p>Click <a href=`https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}` >here</a> to reset your password</p>'
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
