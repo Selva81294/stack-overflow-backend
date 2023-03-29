@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
       expiresIn: "30m",
     });
 
-    const link = `https://stack-overflow-backend-clone.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
+    const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
     
 
     var transporter = nodemailer.createTransport({
