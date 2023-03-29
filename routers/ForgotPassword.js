@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
         console.log("Email sent: " + info.response);
       }
     });
-    // console.log(link)
+    console.log(link)
     res.status(200).json({ message: "Link sent to your mail" });
   } catch (error) {
     console.log(error);
