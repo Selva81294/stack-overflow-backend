@@ -26,9 +26,7 @@ router.post("/", async (req, res) => {
     const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
     
     var transporter = nodemailer.createTransport({
-      host: "stack-overflow-backend-kohl.vercel.app",
-      port: 465,
-      secure: true,
+      service: "gmail",
       auth: {
         user: "selva81294@gmail.com",
         pass: "yeiomrnsgednzgnx",
