@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
       from: "selva81294@gmail.com",
       to: "kumaranselva888@gmail.com",
       subject: "Password Reset",
-      text: link,
+      html: link,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
