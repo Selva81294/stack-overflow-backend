@@ -19,7 +19,7 @@ router.get('/:id/:token', async (req,res)=>{
     const secret = process.env.SECERT_KEY + oldUser.password;
     try {
         const verify = jwt.verify(token, secret)
-        res.render("../routers/passwordChange",{email: verify.email,message: "Not updated"})
+        res.render("passwordChange",{email: verify.email,message: "Not updated"})
     } catch (error) {
         console.log(error)
         res.status(400).json({message: "Not verified"})
