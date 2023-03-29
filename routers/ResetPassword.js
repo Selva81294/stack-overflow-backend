@@ -51,7 +51,7 @@ router.post('/:id/:token', async (req,res)=>{
                     }
                 }
             )
-           res.render("../routers/passwordChange",{email: verify.email, message: "updated"})
+           res.render("passwordChange",{email: verify.email, message: "updated"})
         }
         
     } catch (error) {
