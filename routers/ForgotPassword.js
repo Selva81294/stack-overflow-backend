@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
       service: "gmail",
       auth: {
         user: "selva81294@gmail.com",
-        pass: "wbwiiwtzcdwszxgt",
+        pass: "gcfsggvtwusbhijw",
       },
     });
 
