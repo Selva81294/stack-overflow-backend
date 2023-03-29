@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
       expiresIn: "30m",
     });
 
-    // const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
+    const link = `https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}`;
     
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
       from: "selva81294@gmail.com",
       to: "kumaranselva888@gmail.com",
       subject: "Password Reset",
-      html: '<p>Click <a href=`https://stack-overflow-backend-kohl.vercel.app/api/resetpassword/${oldUser._id}/${token}` >here</a> to reset your password</p>'
+      text: link
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
