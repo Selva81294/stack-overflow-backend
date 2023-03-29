@@ -28,14 +28,14 @@ router.post("/", async (req, res) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "kumaranselva888@gmail.com",
+        user: "selva81294@gmail.com",
         pass: "wbwiiwtzcdwszxgt",
       },
     });
 
     var mailOptions = {
-      from: "kumaranselva888@gmail.com",
-      to: "selva81294@gmail.com",
+      from: "selva81294@gmail.com",
+      to: "kumaranselva888@gmail.com",
       subject: "Password Reset",
       text: link,
     };
