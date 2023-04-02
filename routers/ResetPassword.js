@@ -14,12 +14,12 @@ router.get('/:id/:token', async (req,res)=>{
     console.log(req.params)
     const oldUser = await User.findOne({_id:id})
     if(!oldUser){
-        return res.status(400).json({message: "User not exists"})
+        return res.status(400).json({message: "User not exists"}) 
     } 
     const secret = process.env.SECERT_KEY + oldUser.password;
     try {
         const verify = jwt.verify(token, secret)
-        res.render("passwordChange",{email: verify.email,message: "Not updated"})
+        res.render("../routers/passwordChange",{email: verify.email,message: "Not updated"})
     } catch (error) {
         console.log(error)
         res.status(400).json({message: "Not verified"})
@@ -51,7 +51,7 @@ router.post('/:id/:token', async (req,res)=>{
                     }
                 }
             )
-           res.render("passwordChange",{email: verify.email, message: "updated"})
+           res.render("../routers/passwordChange",{email: verify.email, message: "updated"})
         }
         
     } catch (error) {
