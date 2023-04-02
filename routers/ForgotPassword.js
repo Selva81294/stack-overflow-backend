@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
       expiresIn: "15m",
     });
 
-    const link = `http://localhost:9000/api/resetpassword/${oldUser._id}/${token}`;
+    const link = `https://stockoverflow-clone-backend.onrender.com/api/resetpassword/${oldUser._id}/${token}`;
     
     var transporter = nodemailer.createTransport({
       service: "gmail",
