@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
 
     const secret = process.env.SECERT_KEY + oldUser.password;
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
-      expiresIn: "30m",
+      expiresIn: "15m",
     });
 
     const link = `http://localhost:9000/api/resetpassword/${oldUser._id}/${token}`;
